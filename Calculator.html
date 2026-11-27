@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ماشین حساب پلاس آپدیت | گلدن نت</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{min-height:100vh;background:radial-gradient(800px 500px at 50% 0%,#221a0d,#000 65%);display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Vazirmatn",Tahoma,sans-serif;color:#fff;padding:18px}
+.wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.brand-top{text-align:center}
+.brand-top h1{font-size:22px;font-weight:900;background:linear-gradient(90deg,#ffe9a3,#ffb700,#ff8a00,#ffe9a3);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.3px}
+.brand-top p{font-size:13px;color:#c9a84c;margin-top:4px;letter-spacing:1px}
+.iphone{width:392px;max-width:94vw;background:#000;border-radius:56px;padding:11px;border:1px solid #3a3325;box-shadow:0 0 0 8px #0d0d0f,0 0 0 9px #4a3f27,0 30px 80px rgba(0,0,0,.8),0 0 70px rgba(255,183,0,.15);position:relative;overflow:hidden}
+.screen{background:#000;border-radius:46px;overflow:hidden;position:relative;min-height:740px;display:flex;flex-direction:column}
+.splash{position:absolute;inset:0;background:#000;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;animation:splashHide .6s ease 2.1s forwards}
+.splash h2{font-size:38px;font-weight:900;color:#ffbf00}
+.splash h3{font-size:20px;font-weight:800;letter-spacing:3px;color:#fff}
+.splash span{font-size:15px;color:#8e8e93;background:#1c1c1e;padding:8px 18px;border-radius:100px;border:1px solid #333;direction:ltr}
+@keyframes splashHide{to{opacity:0;visibility:hidden}}
+.island{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:118px;height:30px;background:#000;border:1px solid #222;border-radius:20px;z-index:20}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 28px 0 28px;font-size:14px;font-weight:600;direction:ltr;z-index:10}
+.toolbar{display:flex;justify-content:space-between;align-items:center;padding:8px 20px 0 20px;direction:ltr}
+.toolbar button{background:#1c1c1e;border:1px solid #333;color:#ff9f0a;width:42px;height:42px;border-radius:50%;font-size:18px;cursor:pointer}
+.toolbar button.active{background:#ff9f0a;color:#fff}
+.toolbar .hint{font-size:11px;color:#8e8e93;font-family:Tahoma}
+.goldbar{margin:8px 18px 0 18px;background:linear-gradient(90deg,#2a210f,#4a370f,#2a210f);border:1px solid #6b551f;border-radius:14px;padding:8px 12px;text-align:center;font-size:14px;font-weight:800;color:#ffd75e;direction:ltr;letter-spacing:.3px}
+.goldbar small{display:block;font-size:11px;color:#c9a84c;font-weight:400}
+.history{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(8,8,10,.98);z-index:30;transform:translateY(100%);transition:.3s;display:flex;flex-direction:column;padding:65px 20px 25px 20px;direction:ltr}
+.history.open{transform:translateY(0)}
+#histList{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px}
+.hitem{background:#1c1c1e;border-radius:14px;padding:10px 14px;text-align:right;cursor:pointer}
+.hitem small{color:#8e8e93;font-size:12px;display:block}
+.hitem b{font-size:18px}
+.display{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;padding:8px 24px 8px 24px;direction:ltr;min-height:132px;cursor:pointer}
+#expr{min-height:22px;font-size:16px;color:#8e8e93;word-break:break-all;text-align:right;width:100%}
+#display{font-size:78px;font-weight:200;line-height:1.1;white-space:nowrap;max-width:100%;overflow:hidden;width:100%;text-align:right}
+#display.small{font-size:52px}#display.xsmall{font-size:36px}
+.pad{padding:0 14px 6px 14px;direction:ltr}
+.sci{display:none;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px}
+body.sci-on .sci{display:grid}
+.sci button{background:#1c1c1e;color:#fff;border:none;border-radius:50%;aspect-ratio:1;font-size:15px;cursor:pointer}
+.sci button:active{filter:brightness(1.8)}
+.sci button.fn2{color:#ff9f0a;font-weight:700;background:#2c2c2e}
+.main{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.btn{border:none;border-radius:50%;aspect-ratio:1;font-size:30px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:.1s}
+.btn:active{filter:brightness(1.6);transform:scale(.96)}
+.dark{background:#333;color:#fff}.light{background:#a5a5a5;color:#000}
+.orange{background:#ff9f0a;color:#fff;font-size:34px}
+.orange.active-op{background:#fff;color:#ff9f0a}
+.zero{grid-column:span 2;aspect-ratio:auto;border-radius:50px;justify-content:flex-start;padding-left:30px}
+.channel{margin:10px 14px 4px 14px;background:#0f0f11;border:1px solid #2d2d30;border-radius:16px;padding:10px;text-align:center;direction:ltr}
+.channel b{font-size:14px;color:#ffd75e;letter-spacing:.3px}
+.channel span{display:block;font-size:11px;color:#8e8e93;margin-top:2px}
+.home{width:130px;height:5px;background:#fff;border-radius:3px;margin:10px auto 8px auto}
+.cap{font-size:12px;color:#8e8e93;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:8px 16px;border-radius:100px;font-family:Tahoma}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand-top"><h1>پلاس آپدیت • گلدن نت</h1><p>PLUS UPDATE | GOLDEN NET</p></div>
+<div class="iphone"><div class="screen">
+<div class="splash"><h2>پلاس آپدیت</h2><h3>GOLDEN NET</h3><span>t.me/PLAUSAAPK</span></div>
+<div class="island"></div>
+<div class="topbar"><span id="clock">9:41</span><span>◉ ◂ ▮▮</span></div>
+<div class="toolbar"><button id="sciBtn">◫</button><span class="hint">لمس نمایشگر = کپی</span><button id="hisBtn">🕘</button></div>
+<div class="goldbar">PLUS UPDATE • GOLDEN NET<small>ماشین‌حساب حرفه‌ای آیفونی</small></div>
+<div class="history" id="history"><div id="histList"></div><button id="closeHis" style="background:#ff9f0a;border:none;color:#fff;border-radius:14px;padding:12px;font-weight:700;cursor:pointer">بستن</button></div>
+<div class="display" id="box"><div id="expr"></div><div id="display">0</div></div>
+<div class="pad">
+<div class="sci" id="sci">
+<button data-s="2nd" class="fn2">2nd</button><button data-s="deg">Deg</button><button data-s="sin">sin</button><button data-s="cos">cos</button><button data-s="tan">tan</button>
+<button data-s="pow2">x²</button><button data-s="pow3">x³</button><button data-s="powY">xʸ</button><button data-s="sqrt">√</button><button data-s="log">log</button>
+<button data-s="fact">x!</button><button data-s="pi">π</button><button data-s="e">e</button><button data-s="ln">ln</button><button data-s="inv">1/x</button>
+</div>
+<div class="main" id="main">
+<button class="btn light" data-a="clear">AC</button><button class="btn light" data-a="neg">+/-</button><button class="btn light" data-a="pct">%</button><button class="btn orange" data-op="÷">÷</button>
+<button class="btn dark" data-n="7">7</button><button class="btn dark" data-n="8">8</button><button class="btn dark" data-n="9">9</button><button class="btn orange" data-op="×">×</button>
+<button class="btn dark" data-n="4">4</button><button class="btn dark" data-n="5">5</button><button class="btn dark" data-n="6">6</button><button class="btn orange" data-op="−">−</button>
+<button class="btn dark" data-n="1">1</button><button class="btn dark" data-n="2">2</button><button class="btn dark" data-n="3">3</button><button class="btn orange" data-op="+">+</button>
+<button class="btn dark zero" data-n="0">0</button><button class="btn dark" data-a="dot">.</button><button class="btn orange" data-a="eq">=</button>
+</div>
+</div>
+<div class="channel"><b>t.me/PLAUSAAPK</b><span>پلاس آپدیت • گلدن نت | کانال ما</span></div>
+<div class="home"></div>
+</div></div>
+<div class="cap">برای ویدیو: با ضبط صفحه (Screen Record) از همین صفحه فیلم بگیر</div>
+</div>
+<script>
+const D=document.getElementById('display'),E=document.getElementById('expr'),C=document.querySelector('[data-a="clear"]');
+let cur='0',first=null,op=null,wait=false,lastOp=null,lastNum=null,isDeg=true,is2nd=false,hist=[];
+function fmt(s){if(s==='Error')return 'Error';if(s.includes('e')||s.includes('E')){let n=Number(s);if(!isFinite(n))return 'Error';return n.toPrecision(7);}let neg=s.startsWith('-');if(neg)s=s.slice(1);let p=s.split('.');let i=(p[0].replace(/^0+(?=\d)/,'')||'0').replace(/\B(?=(\d{3})+(?!\d))/g,',');return (neg?'-':'')+(p[1]!==undefined?i+'.'+p[1]:i);}
+function render(ex){D.textContent=fmt(cur);D.className='';D.id='display';if(D.textContent.length>7)D.classList.add('small');if(D.textContent.length>12)D.classList.add('xsmall');if(ex!==undefined)E.textContent=ex;}
+function clearAll(){cur='0';first=null;op=null;wait=false;lastOp=null;lastNum=null;C.textContent='AC';document.querySelectorAll('.orange').forEach(b=>b.classList.remove('active-op'));render('');}
+function digit(d){if(wait){cur=d;wait=false;}else{if(cur.replace(/[-.,]/g,'').length>=12)return;cur=cur==='0'?d:cur+d;}C.textContent='C';render();}
+function dot(){if(wait){cur='0.';wait=false;}else if(!cur.includes('.'))cur+='.';render();}
+function calc(a,b,o){a=parseFloat(a);b=parseFloat(b);let r;if(o==='+')r=a+b;else if(o==='−')r=a-b;else if(o==='×')r=a*b;else if(o==='÷'){if(b===0)return 'Error';r=a/b;}else if(o==='^')r=Math.pow(a,b);else r=0;if(!isFinite(r))return 'Error';return String(parseFloat(r.toPrecision(12)));}
+function setOp(n){if(op&&!wait){let r=calc(first,cur,op);if(r==='Error'){render(first+' '+op+' '+cur+' =');cur='Error';first=null;op=null;wait=true;render();return;}cur=r;}first=cur;op=n;wait=true;lastOp=null;document.querySelectorAll('.orange').forEach(b=>b.classList.remove('active-op'));let btn=document.querySelector('[data-op="'+n+'"]');if(btn)btn.classList.add('active-op');render(first+' '+op);}
+function eq(){if(op){let r=calc(first,cur,op);let ex=first+' '+op+' '+cur+' =';push(ex,r);cur=r;lastOp=op;lastNum=ex.split(' ')[2];first=null;op=null;wait=true;}else if(lastOp){let r=calc(cur,lastNum,lastOp);let ex=cur+' '+lastOp+' '+lastNum+' =';push(ex,r);cur=r;wait=true;}document.querySelectorAll('.orange').forEach(b=>b.classList.remove('active-op'));render();}
+function push(ex,r){hist.unshift({ex,r});if(hist.length>25)hist.pop();let L=document.getElementById('histList');L.innerHTML=hist.map(h=>'<div class="hitem" data-r="'+h.r+'"><small>'+h.ex+'</small><b>'+fmt(h.r)+'</b></div>').join('');L.querySelectorAll('.hitem').forEach(el=>el.onclick=()=>{cur=el.getAttribute('data-r');wait=false;render();document.getElementById('history').classList.remove('open');});}
+function unary(f){if(cur==='Error')return;let r;try{r=f(parseFloat(cur));}catch(e){r=NaN;}if(typeof r!=='number'||!isFinite(r))cur='Error';else cur=String(parseFloat(r.toPrecision(12)));wait=true;render();}
+document.getElementById('main').addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.n!==undefined)digit(b.dataset.n);else if(b.dataset.op)setOp(b.dataset.op);else{let a=b.dataset.a;if(a==='clear')clearAll();if(a==='dot')dot();if(a==='neg'&&cur!=='0'&&cur!=='Error'){cur=cur.startsWith('-')?cur.slice(1):'-'+cur;render();}if(a==='pct'&&cur!=='Error'){cur=String(parseFloat(cur)/100);render();}if(a==='eq')eq();}});
+document.getElementById('sci').addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;let s=b.dataset.s;let R=x=>isDeg?x*Math.PI/180:x,DD=x=>isDeg?x*180/Math.PI:x;
+if(s==='2nd'){is2nd=!is2nd;b.classList.toggle('active',is2nd);document.querySelector('[data-s="sin"]').textContent=is2nd?'sin⁻¹':'sin';document.querySelector('[data-s="cos"]').textContent=is2nd?'cos⁻¹':'cos';document.querySelector('[data-s="tan"]').textContent=is2nd?'tan⁻¹':'tan';return;}
+if(s==='deg'){isDeg=!isDeg;b.textContent=isDeg?'Deg':'Rad';return;}
+if(s==='sin')unary(x=>is2nd?DD(Math.asin(x)):Math.sin(R(x)));
+if(s==='cos')unary(x=>is2nd?DD(Math.acos(x)):Math.cos(R(x)));
+if(s==='tan')unary(x=>is2nd?DD(Math.atan(x)):Math.tan(R(x)));
+if(s==='log')unary(x=>Math.log10(x));if(s==='ln')unary(x=>Math.log(x));
+if(s==='sqrt')unary(x=>Math.sqrt(x));if(s==='pow2')unary(x=>x*x);if(s==='pow3')unary(x=>x*x*x);
+if(s==='inv')unary(x=>1/x);if(s==='fact')unary(x=>{if(x<0||!Number.isInteger(x)||x>170)return NaN;let f=1;for(let i=2;i<=x;i++)f*=i;return f;});
+if(s==='pi'){cur=String(Math.PI);wait=true;render();}if(s==='e'){cur=String(Math.E);wait=true;render();}
+if(s==='powY')setOp('^');});
+document.getElementById('sciBtn').onclick=function(){document.body.classList.toggle('sci-on');this.classList.toggle('active');};
+document.getElementById('hisBtn').onclick=()=>document.getElementById('history').classList.add('open');
+document.getElementById('closeHis').onclick=()=>document.getElementById('history').classList.remove('open');
+document.getElementById('box').onclick=()=>{if(cur!=='Error'&&navigator.clipboard){navigator.clipboard.writeText(cur);E.textContent='کپی شد ✓';}};
+document.addEventListener('keydown',e=>{if(/^[0-9]$/.test(e.key))digit(e.key);else if(e.key==='.')dot();else if(e.key==='+')setOp('+');else if(e.key==='-')setOp('−');else if(e.key==='*')setOp('×');else if(e.key==='/'){e.preventDefault();setOp('÷');}else if(e.key==='Enter'||e.key==='=')eq();else if(e.key==='Escape')clearAll();});
+function tick(){let d=new Date();document.getElementById('clock').textContent=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');}tick();setInterval(tick,10000);render('');
+</script>
+</body>
+</html>
